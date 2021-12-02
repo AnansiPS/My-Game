@@ -52,3 +52,7 @@ while True:
     [pygame.draw.rect(sc, color_list[color], block) for color, block in enumerate(block_list)]
     pygame.draw.rect(sc, pygame.Color('#FC8F8F'), paddle)
     pygame.draw.circle(sc, pygame.Color('#F6C000'), ball.center, ball_radius)
+
+    # ball movement
+    ball.x += ball_speed * dx
+    ball.y += ball_speed * dy
