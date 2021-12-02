@@ -43,3 +43,12 @@ def detect_collision(dx, dy, ball, rect):
         dx = -dx
     return dx, dy
 
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+    sc.blit(img, (0, 0))
+    # drawing world
+    [pygame.draw.rect(sc, color_list[color], block) for color, block in enumerate(block_list)]
+    pygame.draw.rect(sc, pygame.Color('#FC8F8F'), paddle)
+    pygame.draw.circle(sc, pygame.Color('#F6C000'), ball.center, ball_radius)
