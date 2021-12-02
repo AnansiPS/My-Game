@@ -80,3 +80,20 @@ while True:
         hit_rect.inflate_ip(ball.width * 3, ball.height * 3)
         pygame.draw.rect(sc, hit_color, hit_rect)
         fps += 2
+
+    # win, game over
+    if ball.bottom > HEIGHT:
+        print('GAME OVER!')
+        exit()
+    elif not len(block_list):
+        print('WIN!')
+        exit() 
+    # control
+    key = pygame.key.get_pressed()
+    if key[pygame.K_LEFT] and paddle.left > 0:
+        paddle.left -= paddle_speed
+    if key[pygame.K_RIGHT] and paddle.right < WIDTH:
+        paddle.right += paddle_speed
+    # update screen
+    pygame.display.flip()
+    clock.tick(fps)
